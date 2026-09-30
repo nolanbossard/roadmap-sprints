@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-white text-ink font-sans antialiased; }
+  input[type='number']::-webkit-inner-spin-button { opacity: 0.4; }
+  :focus-visible { outline: 2px solid #1F2F23; outline-offset: 2px; }
+}
+
+@layer components {
+  .field { @apply w-full rounded-md border border-line bg-white px-2.5 py-1.5 text-sm text-ink placeholder:text-muted/60 hover:border-muted/50 focus:border-ink focus:outline-none; }
+  .btn { @apply inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium text-ink hover:bg-paper; }
+  .btn-main { @apply inline-flex items-center gap-1.5 rounded-md bg-ink px-3 py-1.5 text-sm font-medium text-white hover:opacity-90; }
+  .label { @apply mb-1 block text-xs font-medium text-muted; }
+  .tnum { font-variant-numeric: tabular-nums; }
+}
+
+@media print {
+  @page { size: A3 landscape; margin: 10mm; }
+  .no-print { display: none !important; }
+  .print-wrap { overflow: visible !important; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
